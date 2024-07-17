@@ -311,7 +311,7 @@ char TLM_ON_INTERVAL = 0;
 uint8_t telemetry_interval_ms = 30;
 uint8_t TEMPERATURE_LIMIT = 255; // degrees 255 to disable
 char advance_level = 2; // 7.5 degree increments 0 , 7.5, 15, 22.5)
-uint16_t motor_kv = 2000;
+uint16_t motor_kv = 980;
 char motor_poles = 14;
 uint16_t CURRENT_LIMIT = 202;
 uint8_t sine_mode_power = 5;
@@ -331,7 +331,7 @@ uint8_t servo_dead_band = 100;
 
 //========================= Battery Cuttoff Settings ========================
 char LOW_VOLTAGE_CUTOFF = 0; // Turn Low Voltage CUTOFF on or off
-uint16_t low_cell_volt_cutoff = 330; // 3.3volts per cell
+uint16_t low_cell_volt_cutoff = 300; // 3.3volts per cell
 
 //=========================== END EEPROM Defaults ===========================
 
