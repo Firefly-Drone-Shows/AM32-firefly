@@ -1111,6 +1111,7 @@
 #define FIRMWARE_NAME "Firefly G20 "
 #define DEAD_TIME 5
 #define HARDWARE_GROUP_FIREFLY
+#define USE_SERIAL_TELEMETRY
 #endif
 
 #ifdef TMOTOR45_F051

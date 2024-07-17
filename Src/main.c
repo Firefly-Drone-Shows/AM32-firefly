@@ -1269,16 +1269,12 @@ void tenKhzRoutine()
                             if ((cell_count == 0) && LOW_VOLTAGE_CUTOFF) {
                                 cell_count = battery_voltage / 370;
                                 for (int i = 0; i < cell_count; i++) {
-                                    playInputTune();
+                                    // playInputTune();
                                     delayMillis(100);
                                     RELOAD_WATCHDOG_COUNTER();
                                 }
                             } else {
-#ifdef MCU_AT415
-															play_tone_flag = 4;
-#else
-															playInputTune();
-#endif
+                                // playInputTune();
                             }
                             if (!servoPwm) {
                                 eepromBuffer.rc_car_reverse = 0;
