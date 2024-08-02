@@ -1276,11 +1276,13 @@ void tenKhzRoutine()
                                 cell_count = battery_voltage / 370;
                                 for (int i = 0; i < cell_count; i++) {
                                     // playInputTune();
+                                    playStartupTune();
                                     delayMillis(100);
                                     RELOAD_WATCHDOG_COUNTER();
                                 }
                             } else {
                                 // playInputTune();
+                                playStartupTune();
                             }
                             if (!servoPwm) {
                                 eepromBuffer.rc_car_reverse = 0;
@@ -1840,7 +1842,7 @@ if(zero_crosses < 5){
                 }
                 NVIC_SystemReset();
             }
-            if (signaltimeout > LOOP_FREQUENCY_HZ << 1) { // 2 second when not armed
+            if (signaltimeout > LOOP_FREQUENCY_HZ << 4) { // 16 second timeout when not connected and when not armed (2^4)
                 allOff();
                 armed = 0;
                 input = 0;
@@ -2186,7 +2188,7 @@ if(zero_crosses < 5){
 #if DRONECAN_SUPPORT
 	DroneCAN_update();
 #endif
-    }
+    } // end of main loop
 }
 
 #ifdef USE_FULL_ASSERT
