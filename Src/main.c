@@ -1365,11 +1365,13 @@ void tenKhzRoutine()
                                 cell_count = battery_voltage / 370;
                                 for (int i = 0; i < cell_count; i++) {
                                     // playInputTune();
+                                    playStartupTune();
                                     delayMillis(100);
                                     RELOAD_WATCHDOG_COUNTER();
                                 }
                             } else {
                                 // playInputTune();
+                                playStartupTune();
                             }
                             if (!servoPwm) {
                                 RC_CAR_REVERSE = 0;
@@ -1854,7 +1856,7 @@ int main(void)
                 }
                 NVIC_SystemReset();
             }
-            if (signaltimeout > LOOP_FREQUENCY_HZ << 1) { // 2 second when not armed
+            if (signaltimeout > LOOP_FREQUENCY_HZ << 4) { // 16 second timeout when not connected and when not armed (2^4)
                 allOff();
                 armed = 0;
                 input = 0;
@@ -2225,7 +2227,7 @@ int main(void)
 #ifdef BRUSHED_MODE
         runBrushedLoop();
 #endif
-    }
+    } // end of main loop
 }
 
 #ifdef USE_FULL_ASSERT
